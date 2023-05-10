@@ -34,18 +34,21 @@ namespace Ejercicio23
             {
                 string nuevoElemento = txtBox_Elemento.Text;
                 lst_Box_Elementos.Items.Add(nuevoElemento);
-
+                CuentaElemListBox();
             }
             if (txtBox_Elemento != null && radioButton2.Checked)
             {
                 string nuevoElemento = txtBox_Elemento.Text;
                 comboBox_Elementos.Items.Add(nuevoElemento);
+                CuentaElemComboBox();
+
             }
 
             if (txtBox_Elemento != null && radioButton3.Checked)
             {
                 string nuevoElemento = txtBox_Elemento.Text;
                 checkListBox_Elementos.Items.Add(nuevoElemento);
+                CuentaChekedList();
             }
 
         }
@@ -54,14 +57,18 @@ namespace Ejercicio23
         {
             if (radioButton1.Checked) {
                 lst_Box_Elementos.Items.Remove(lst_Box_Elementos.SelectedItem);
+                CuentaElemListBox();
             }
             if (radioButton2.Checked)
             {
                 comboBox_Elementos.Items.Remove(comboBox_Elementos.SelectedItem);
+                CuentaElemComboBox();
+
             }
             if (radioButton3.Checked)
             {
                 checkListBox_Elementos.Items.Remove(checkListBox_Elementos.SelectedItem);
+                CuentaChekedList();
             }
 
         }
@@ -142,6 +149,22 @@ namespace Ejercicio23
         {
                 lstBox_Selec_Unic.Items.Clear();
                 listBox_Multiseleccion.Items.Clear();
+        }
+
+        private void CuentaElemListBox()
+        {
+            lbl_Contador_ListBox.Text = Convert.ToString(lst_Box_Elementos.Items.Count);
+        }
+
+        private void CuentaElemComboBox()
+        {
+            lbl_Contador_ComboBox.Text = Convert.ToString(comboBox_Elementos.Items.Count);
+        }
+
+        private void CuentaChekedList()
+        {
+            lbl_Contador_CheckedListBox.Text = Convert.ToString(checkListBox_Elementos.Items.Count);
+
         }
     }
 }
